@@ -4,6 +4,9 @@ function setup() {
   let bot = new RiveScript();
   bot.loadFile("brain.rive", brainReady, brainError);
 
+  var speeker = new p5.Speech();
+  speeker.speak('hey, how are you?');
+
   function brainReady() {
     console.log('Chatbot ready!');
     bot.sortReplies();

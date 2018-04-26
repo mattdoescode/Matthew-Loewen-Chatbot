@@ -1,0 +1,220 @@
+! version = 2.0
+
+//! global debug = true
+
+// Substitutions
+! sub &quot;    = "
+! sub &apos;    = '
+! sub &amp;     = &
+! sub &lt;      = <
+! sub &gt;      = >
+! sub +         = plus
+! sub -         = minus
+! sub /         = divided
+! sub *         = times
+! sub i'm       = i am
+! sub i'd       = i would
+! sub i've      = i have
+! sub i'll      = i will
+! sub don't     = do not
+! sub isn't     = is not
+! sub you'd     = you would
+! sub you're    = you are
+! sub you've    = you have
+! sub you'll    = you will
+! sub he'd      = he would
+! sub he's      = he is
+! sub he'll     = he will
+! sub she'd     = she would
+! sub she's     = she is
+! sub she'll    = she will
+! sub they'd    = they would
+! sub they're   = they are
+! sub they've   = they have
+! sub they'll   = they will
+! sub we'd      = we would
+! sub we're     = we are
+! sub we've     = we have
+! sub we'll     = we will
+! sub whats     = what is
+! sub what's    = what is
+! sub what're   = what are
+! sub what've   = what have
+! sub what'll   = what will
+! sub can't     = can not
+! sub whos      = who is
+! sub who's     = who is
+! sub who'd     = who would
+! sub who'll    = who will
+! sub don't     = do not
+! sub didn't    = did not
+! sub it's      = it is
+! sub could've  = could have
+! sub couldn't  = could not
+! sub should've = should have
+! sub shouldn't = should not
+! sub would've  = would have
+! sub wouldn't  = would not
+! sub when's    = when is
+! sub when're   = when are
+! sub when'd    = when did
+! sub y         = why
+! sub u         = you
+! sub ur        = your
+! sub r         = are
+! sub im        = i am
+! sub wat       = what
+! sub wats      = what is
+! sub ohh       = oh
+! sub becuse    = because
+! sub becasue   = because
+! sub becuase   = because
+! sub practise  = practice
+! sub its a     = it is a
+! sub fav       = favorite
+! sub fave      = favorite
+! sub iam       = i am
+! sub realy     = really
+! sub iamusing  = i am using
+! sub amleaving = am leaving
+! sub yuo       = you
+! sub youre     = you are
+! sub didnt     = did not
+! sub ain't     = is not
+! sub aint      = is not
+! sub wanna     = want to
+! sub brb       = be right back
+! sub bbl       = be back later
+! sub gtg       = got to go
+! sub g2g       = got to go
+! sub lyl       = love you lots
+! sub gf        = girlfriend
+! sub g/f       = girlfriend
+! sub bf        = boyfriend
+! sub b/f       = boyfriend
+! sub b/f/f     = best friend forever
+! sub :-)       = smile
+! sub :)        = smile
+! sub :d        = grin
+! sub :-d       = grin
+! sub :-p       = tongue
+! sub :p        = tongue
+! sub ;-)       = wink
+! sub ;)        = wink
+! sub :-(       = sad
+! sub :(        = sad
+! sub :'(       = cry
+! sub :-[       = shy
+! sub :-\       = uncertain
+! sub :-/       = uncertain
+! sub :-s       = uncertain
+! sub 8-)       = cool
+! sub 8)        = cool
+! sub :-*       = kissyface
+! sub :-!       = foot
+! sub o:-)      = angel
+! sub >:o       = angry
+! sub :@        = angry
+! sub 8o|       = angry
+! sub :$        = blush
+! sub :-$       = blush
+! sub :-[       = blush
+! sub :[        = bat
+! sub (a)       = angel
+! sub (h)       = cool
+! sub 8-|       = nerdy
+! sub |-)       = tired
+! sub +o(       = ill
+! sub *-)       = uncertain
+! sub ^o)       = raised eyebrow
+! sub (6)       = devil
+! sub (l)       = love
+! sub (u)       = broken heart
+! sub (k)       = kissyface
+! sub (f)       = rose
+! sub (w)       = wilted rose
+
+//either way subsutitions
+! person i am    = you are
+! person you are = i am
+! person i'm     = you're
+! person you're  = I'm
+! person my      = your
+! person your    = my
+! person you     = I
+! person i       = you
+
+// Set arrays
+! array maleNoun   = male guy boy dude boi man men gentleman gentlemen
+! array femaleNoun = female girl chick woman women lady babe
+
+
+// bot Variables
+! var name     =The Electronic Assistant
+! var shortName = tea
+! var age      = 2 days
+! var gender   = electronic
+! var location = the cloud
+! var eyes     = blue
+
+! var userName = notSet         //always need to check this value before calling
+ 
+
+! local concat = newline
+
+//info about the bot
++ who are you [*]
+- Hello. I am an artificial intelligence agent programmed to inform you 
+^ about Matthew Loewen. I know all about him. You can call me 
+^ <get name> or THA
+
++ [*]<bot name>[*]
+- Yes? {@<star1>}
+
++ who (is your master|made you|created you|programmed you) [*] 
+- The great Matthew Loewen of course.
+
+//interaction with the user 
++ my name is *
+- <set name=<formal>>Nice to meet you, <get name>.
+- <set name=<formal>><get name>, nice to meet you.
+
++ what is my name
+* <get name> == undefined => I don't think you've told me your name.
+- Your name is <get name> 
+- I think it is <get name> 
+
+
+//info about matt
++ [*] (tell me about his resume|resume) [*]
+- anything in particular? <br/>
+^ I know his education, revalent coursework, experience, and community involvement. 
+
++ what is your (home|office|cell) [phone] number
+- hum... i don't usually give out his phone number.
+^ would you like his email? It's matt@mattcodeme.com
+
++ (phone | number)
+@ what is your home phone number. 
+
+//any wild card matching
++ [*] jail [*]
+- Nope matthew has never gone to jail
+
++ (matt|matthew|loewen)
+- Would you like to know something about him?
+^ I have memorised his resume and know some fun facts about him!
+
++ *
+- I do not understand what you are trying to say. {weight=20}
+- Let's change the subject. {weight=10}
+- Try phrasing that in a different way {weight=20}
+- ERROR DOES NOT COMPUTE. BEEP BOOP {weight=1}
+
+//{weight=2}
+//-{random} yes|no|maybe{/random}
+
+// ^ extend code from line above 
+// _ requires text only 
+// # requires text only
+// (word1|word2) for random words but only take certain ones

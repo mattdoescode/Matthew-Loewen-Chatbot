@@ -1,35 +1,37 @@
 function setup() {
   noCanvas();
 
+  //set up rivescript
   let bot = new RiveScript();
-  bot.loadFile("brain.rive", brainReady, brainError);
+  bot.loadFile("brain/brain.rive", brainReady, brainError);
 
+  //set up speech
   var speeker = new p5.Speech();
-  speeker.speak('hey, how are you?');
 
+  //when the brain is ready
   function brainReady() {
     console.log('Chatbot ready!');
     bot.sortReplies();
-    let num = floor(random(10)) + 1;
-    console.log(num);
-    let reply = bot.reply('local-user', 'set ' + num);
+    let reply = bot.reply('local-user');
   }
 
-  function brainError() {
-    console.log('Chatbot error!')
+  //if something goes wrong
+  function brainError(error) {
+    console.log('Chatbot error: ' + error)
   }
 
-
+  //select what to update from the HTML
   let button = select('#submit');
   let user_input = select('#user_input');
   let output = select('#output');
 
+  //everytime the sumbit button is pressed look at chat()
   button.mousePressed(chat);
 
   function chat() {
     let input = user_input.value();
     let reply = bot.reply("local-user", input);
     output.html(reply);
+    speeker.speak(reply);
   }
-
 }

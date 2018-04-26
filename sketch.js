@@ -1,3 +1,4 @@
+//this function is called once page loaded
 function setup() {
   noCanvas();
 
@@ -28,6 +29,7 @@ function setup() {
   //everytime the sumbit button is pressed look at chat()
   button.mousePressed(chat);
 
+  //handles chat information
   function chat() {
     let input = user_input.value();
     let reply = bot.reply("local-user", input);

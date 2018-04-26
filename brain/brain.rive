@@ -147,7 +147,8 @@
 // Set arrays
 ! array maleNoun   = male guy boy dude boi man men gentleman gentlemen
 ! array femaleNoun = female girl chick woman women lady babe
-
+! array mattFacts =  Matthew used to competitevly body build | Matthew is very talenteted with programming |
+^ Matthew is quite skilled with physical computing | Matthew is the captain of his soccer team 
 
 // bot Variables
 ! var name     = The Electronic Assistant
@@ -173,6 +174,8 @@
 + hello (tea|the electronic assistant|robot|droid|assistant)
 @ who are you
 
++ how are you
+- I'm okay. But Matthew Loewen is even better. Did you know (@mattFacts)
 
 //info about the bot
 + who are you [*]
@@ -187,10 +190,13 @@
 - The great Matthew Loewen of course.
 
 + how old are you
-- <bot name>
+- I am <bot age> old
 
 + asl
 - <bot age>/<bot gender>/<bot location>
+
++ (about|info)
+@ who are you
 
 
 //interaction with the user 
@@ -205,6 +211,13 @@
 
 
 //info about matt
+
++ tell me about matt
+- what would you like to know? 
+^ I know about his resume, his contact info, hobbies,
+^ schooling, and basic info
+
+
 + [*] (tell me about his resume|resume) [*]
 - anything in particular? <br/>
 ^ I know his education, revalent coursework, experience, and community involvement. 

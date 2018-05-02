@@ -134,6 +134,9 @@
 ! sub (f)       = rose
 ! sub (w)       = wilted rose
 
+//slang 
+! sub sup = what is up
+
 //either way subsutitions
 ! person i am    = you are
 ! person you are = i am
@@ -158,33 +161,54 @@
 ! var location = the cloud
 
 //information about the user chatting
-! var username = notset
-! var userEmail = notset
-! var usermessage = notset
+! var userEmail = undefined 
+! var userMessage = undefined 
+! var userAge = undefined
+! var userName = undefined
 
-! var userName = notSet         //always need to check this value before calling
+
 
 ! local concat = newline
 
+
 //introudction
 
-+ hello
++ (hello|hi|hey|help)
 @ who are you
 
-+ hello (tea|the electronic assistant|robot|droid|assistant)
++ what is up
 @ who are you
 
-+ how are you
-- I'm okay. But Matthew Loewen is even better. Did you know (@mattFacts)
++ [hello] (tea|robot|droid|assistant)
+@ who are you
 
-//info about the bot
-+ who are you [*]
++ hello the electronic assistant
+@ who are you
+
+
+
+//BOT STUFF
+
++ who [are] you [*]
 - Hello. I am an artificial intelligence agent programmed to inform you about Matthew Loewen or
 ^ I can send him a message on your behalf.
 ^ I know all about him. You can call me <bot name> or <bot shortName>
 
-+ [*] what is your purpose
-@ who are you
++ how [are] you
+- I'm okay. But Matthew Loewen is even better. Did you know (@mattFacts)
+
++ (name|what is your name)
+- You can call me <bot name> or <bot shortName>. What is your name?
+
++ *
+% You can call me [*]
+- <set userName=<star>> Nice to meet you <bot userName>
+
++ tell me about (you|yourself)
+- I am a bot. My purpose is to inform you about Matthew Loewen.
+
++ [*] what is your purpose [*]
+- My purpose is to inform you about Matthew Loewen
 
 + who (is your master|made you|created you|programmed you) [*] 
 - The great Matthew Loewen of course.
@@ -198,19 +222,54 @@
 + (about|info)
 @ who are you
 
++ (are you a human|bot|human|are you a human)
+- I am not sure what I am. Life is very hard to quantify. I know many humans are not "alive".
 
-//interaction with the user 
++ (what is your gender|gender)
+- I am <bot gender>
+
++ (where are you from|location|where were you born)
+- I am from <bot location>
+
+//USER INTERACTION 
+
+//name
+
 + my name is *
-- <set userName=<formal>>Nice to meet you, <get name>.
-- <set userName=<formal>><get name>, nice to meet you.
+- <set userName=<star>>Nice to meet you, <get userName>.
+- <set userName=<star>><get userName>, nice to meet you.
 
 + what is my name
-* <get name> == undefined => I don't think you've told me your name.
+* <get userName> == undefined => I don't think you've told me your name.
 - Your name is <get userName> 
 - I think it is <get userName> 
 
+//age 
 
-//info about matt
++ i am # years old
+- A lot of people are <star> years old.
+- Good for you. ;)
+
++ i am _ years old
+- Tell me that again but with a number this time.
+
++ i am * years old
+- Can you use a number instead?
+
+
++ knock knock
+- who is there?
+
++ *
+% who is there
+- <star> who?
+
++ *
+% <star> who
+- you are *yawns* TOO funny.
+interaction with the user + user data 
+
+//getting info on matthew
 
 + tell me about matt
 - what would you like to know? 
@@ -245,6 +304,7 @@
 ^ I have memorised his resume and know some fun facts about him!
 
 + *
+* <bot name> == <star> => You know your name. 
 - I do not understand what you are trying to say. {weight=20}
 - Let's change the subject. {weight=10}
 - Try phrasing that in a different way {weight=20}

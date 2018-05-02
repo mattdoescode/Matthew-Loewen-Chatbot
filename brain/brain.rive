@@ -256,6 +256,7 @@
 + i am * years old
 - Can you use a number instead?
 
+// KNOCK KNOCK JOKES
 
 + knock knock
 - who is there?
@@ -281,11 +282,33 @@ interaction with the user + user data
 - anything in particular? <br/>
 ^ I know his education, revalent coursework, experience, and community involvement. 
 
++ [his|matt|matthew|matts|matthews] education
+- Matthew is a student at the university of Maine.
+^ Currently he is studying New Media with a dual minor in Computer Science and Graphic Design. 
+
++ [his|matt|matthew|matts|matthews] (coursework|courses) [*]
+- Matthew has taken many useful courses, some of which are "Object Oriented Programming",
+^ "Data Structures", "Artificial Intelligence", "Programming with C++", "Advanced Web Design using Node.js"
+^ and many more.
+
++ [his|matt|matthew|matts|matthews] experience
+- Matthew currently has 3 jobs, 1. Web Software Developer, 2. Artificial Intelligence Lab Asistant, 3. IT Consultant
+
++ [his|matt|matthew|matts|matthews] [community|school|extra|extracurricular] involvement
+-Cryptocurrency Club, 2015 - present
+^Secretary, Cybersecurity Club, 2015 - present
+^Captain, Intramural Soccer, 2015 - present
+^Student Award, Massachusetts Institute of Technology 
+^Network of Educators in Science and Technology, 2015
+^Jimmy Joe Allen Memorial Award and Scholarship, 2015
+^Pam Ankers Memorial Award and Scholarship, 2015
+^Rotary Scholarship, 2015
+
 + contact
 - Matthews contact info <br/>
 ^ email: matt@mattcodeme.com
 
-+ contact [*]
++ [*] contact [*]
 @ contact
 
 + what is your [*] [phone] number

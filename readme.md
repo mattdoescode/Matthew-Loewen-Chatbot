@@ -14,11 +14,7 @@ https://vimeo.com/268530193
 Created by: Matthew Loewen
 Last edit: 5/7/2018
 
-Biggest challenge:
--Guessing whateveryone is going to say
-    - over come with lots of testing from other people
-
-Problems:
+Problems so far:
 - Difficult to guess what people are going to say
 
 Real problems:
@@ -26,7 +22,8 @@ Real problems:
 
 Todo:
 -test bot with test subjects 
-    -see how they interact with the bot (4 done)
+    -see how they interact with the bot
+-make conversations with the bot
 -gather information about the user talking to the bot
 -compline the information and send email to matthew loewen about who's chatting with the bot
 

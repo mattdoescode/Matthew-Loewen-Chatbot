@@ -1,12 +1,16 @@
 //This file is the "life" of this project 
 //Broken down into several parts
 //  substitions -> these catch key works as input and convert them
-//  3 key sections of user input to match
 //  bot variables, these store information about the bot
 //  (note) variables about the person skeaking to the bot are created and used as needed INLINE 
 //  (that's the only possible way to do it)
-//  
-
+//key sections of chatting
+//  1. introdcution chatting
+//  2. bot self knowledge 
+//  3. direct interaction between bot & user (ie the bot getting info about the user)
+//  4. information about matt
+//  5. wild card matching ( at this point all chat messages that are not understood go here, this is 
+//  the last attempt to try and say something meaningful back to the user)
 
 ! version = 2.0
 
@@ -170,6 +174,7 @@
 ! var age      = 2 days
 ! var gender   = electronic
 ! var location = the cloud
+! var options = Ask me about "Matthews resume", "contact info", "hobbies", "schooling", and or "basic info"
 
 //information about the user chatting
 ! var userEmail = undefined 
@@ -232,6 +237,7 @@
 
 + (where are you from|location|where were you born)
 - I am from <bot location>
+
 //name
 
 + hello my name is *
@@ -261,7 +267,6 @@
 
 + i am # years old
 - A lot of people are <star> years old.
-- Good for you. ;)
 
 + i am _ years old
 - Tell me that again but with a number this time.
@@ -299,26 +304,32 @@ interaction with the user + user data
 - anything in particular? <br/>
 ^ I know his education, revalent coursework, experience, and community involvement. 
 
-+ [his|matt|matthew|matts|matthews|tell me his] education
++ [his|matt|matthew|matts|matthews|tell me his|tell me about his|tell me about matts] education
 - Matthew is a student at the university of Maine.
 ^ Currently he is studying New Media with a dual minor in Computer Science and Graphic Design. 
 
-+ [his|matt|matthew|matts|matthews|tell me his] (coursework|courses) [*]
++ [his|matt|matthew|matts|matthews|tell me his|tell me about his|tell me about matts] (coursework|courses) [*]
 - Matthew has taken many useful courses, some of which are "Object Oriented Programming",
 ^ "Data Structures", "Artificial Intelligence", "Programming with C++", "Advanced Web Design using Node.js"
 ^ and many more.
 
-+ [his|matt|matthew|matts|matthews|tell me his] experience
-- Matthew currently has 3 jobs, 1. Web Software Developer, 2. Artificial Intelligence Lab Assistant, 3. IT Consultant
++ [his|matt|matthew|matts|matthews|tell me his|tell me about his|tell me about matts] experience
+- Matthew currently has 3 jobs, 1. Web Software Developer, 2. Artificial Intelligence Lab Assistant, 3. IT Consultant Ask me more about "job 1", "job 2", "job 3" or "all 3"
 
 + job 1
-- Web Developer - more info coming
+- Web Developer - Matthew does full stack application development using PHP, Node.js, and React
 
 + job 2
-- AI Developer - more info coming
+- AI Developer - Here Matthew does research and application development for AI
 
 + job 3
-- Tech Support - more info coming
+- Tech Support - Adobe Suite and Microsoft office troubleshooting along with large format pritning services.
+
++ (all 3|his jobs|jobs)
+- Matthew has 3 jobs #1 - Web Developer - Matthew does full stack application development using PHP, Node.js, and React
+^  2 - AI Developer - Here Matthew does research and application development for AI
+^  3 - Tech Support - Adobe Suite and Microsoft office troubleshooting along with large format pritning services.
+
 
 + (past job|past jobs)
 - Matt's past jobs are... 
@@ -364,11 +375,11 @@ interaction with the user + user data
 ^ I have memorised his resume and know some fun facts about him!
 
 + *
-- I do not understand what you are trying to say. {weight=20}
-- Let's change the subject. {weight=10}
-- How about we get back on topic. {weight=20}
-- Try phrasing that in a different way {weight=20}
-- ERROR DOES NOT COMPUTE. BEEP BOOP {weight=1}
+- I do not understand what you are trying to say. <bot options> {weight=20}
+- Let's change the subject. <bot options>  {weight=20}
+- How about we get back on topic. <bot options> {weight=20}
+- Try phrasing that in a different way. <bot options> {weight=20}
+// - ERROR DOES NOT COMPUTE. BEEP BOOP {weight=1}
 
 
 // give hints 

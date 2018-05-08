@@ -7,6 +7,9 @@ Problems so far:
 -this bot is stupid, doesn't learn
 -programming takes a long time 
 
+Real problems:
+-Can't reassign vars once already set
+
 Todo:
 -test bot with test subjects 
     -see how they interact with the bot

@@ -22,22 +22,45 @@
 			clear: left;
 		}
 
-		#warning {
-			margin: auto;
-			margin-top: 200px;
+		body {
 			text-align: center;
+			min-width: 450px;
+		}
+
+		button {
+			margin: auto;
+		}
+
+		#clear {
+			margin-top: 150px;
 		}
 	</style>
+
+	<script>
+		//clears user input upon hitting submit
+		function clearValue() {
+			document.getElementById('user_input').value = '';
+		}
+	</script>
+
 
 </head>
 
 <body>
-	<h1>Chatbot</h1>
+	<h1>The Matthew Loewen Chatbot!</h1>
+
+	<p>Hello I know all about Matthew Loewen and what we has done with his life.</p>
+	<p>Ask me about his resume, what kind of person he is, his interests, etc.</p>
+	<p>Remember to turn your speakers on so you can hear me speak.</p>
+	<p>If you've found a bug please email Matthew at matt@mattcodeme.com</p>
+	<p>
+		<strong>Have fun!</strong>
+	</p>
 
 	<p>
-		say:
+		Speak to me:
 		<input id="user_input"></input>
-		<button id="submit">submit</button>
+		<button id="submit" onclick="clearValue();">submit</button>
 	</p>
 
 	<p>
@@ -45,10 +68,9 @@
 		<h4 id="output"></h4>
 	</p>
 
-	<div id="warning">
-		<h2>Turn your speakers on!</h2>
-	</div>
-
+	<h2 id="clear">More about me</h2>
+	<p>I am a bot developed in rivescript. I use p5.js for some of my functoinality</p>
+	<p>For my voice I use p5.speech</p>
 </body>
 
 </html>

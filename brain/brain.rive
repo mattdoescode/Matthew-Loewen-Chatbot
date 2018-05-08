@@ -166,33 +166,24 @@
 ! var userAge = undefined
 ! var userName = undefined
 
-
-
 ! local concat = newline
 
-
 //introudction
-
 + (hello|hi|hey|help)
 @ who are you
 
 + what is up
 @ who are you
 
-+ [hello] (tea|robot|droid|assistant)
++ [hello] (tea|robot|droid|assistant|bot|the electronic assistant)
 @ who are you
-
-+ hello the electronic assistant
-@ who are you
-
-
 
 //BOT STUFF
-
 + who [are] you [*]
 - Hello. I am an artificial intelligence agent programmed to inform you about Matthew Loewen or
-^ I can send him a message on your behalf.
-^ I know all about him. You can call me <bot name> or <bot shortName>
+^ I can send him a message on your behalf. (I'm still learning how to do this)
+^ I know all about him. You can call me <bot name> or <bot shortName>.
+^ How may I help you?
 
 + how [are] you
 - I'm okay. But Matthew Loewen is even better. Did you know (@mattFacts)
@@ -235,6 +226,20 @@
 
 //name
 
++ hello my name is *
+- <set userName=<star>>Nice to meet you, <get userName>.
+^ I am an artificial intelligence agent programmed to inform you about Matthew Loewen or
+^ I can send him a message on your behalf. (I'm still learning how to do this)
+^ I know all about him. You can call me <bot name> or <bot shortName>.
+^ How may I help you?
+
++ hello my name is 
+- your name is what?
+
++ *
+% your name is what?
+- <set userName = <star>>I like that name <get userName>
+
 + my name is *
 - <set userName=<star>>Nice to meet you, <get userName>.
 - <set userName=<star>><get userName>, nice to meet you.
@@ -267,32 +272,46 @@
 
 + *
 % <star> who
-- you are *yawns* TOO funny.
+- you are TOO funny.
 interaction with the user + user data 
 
 //getting info on matthew
 
-+ tell me about matt
++ tell me about (matt|matthew|matt loewen|matthew loewen|loewen)
 - what would you like to know? 
 ^ I know about his resume, his contact info, hobbies,
 ^ schooling, and basic info
 
++ [what is his|tell he his] (middlename|middle name)
+- MacFarlane
 
 + [*] (tell me about his resume|resume) [*]
 - anything in particular? <br/>
 ^ I know his education, revalent coursework, experience, and community involvement. 
 
-+ [his|matt|matthew|matts|matthews] education
++ [his|matt|matthew|matts|matthews|tell me his] education
 - Matthew is a student at the university of Maine.
 ^ Currently he is studying New Media with a dual minor in Computer Science and Graphic Design. 
 
-+ [his|matt|matthew|matts|matthews] (coursework|courses) [*]
++ [his|matt|matthew|matts|matthews|tell me his] (coursework|courses) [*]
 - Matthew has taken many useful courses, some of which are "Object Oriented Programming",
 ^ "Data Structures", "Artificial Intelligence", "Programming with C++", "Advanced Web Design using Node.js"
 ^ and many more.
 
-+ [his|matt|matthew|matts|matthews] experience
-- Matthew currently has 3 jobs, 1. Web Software Developer, 2. Artificial Intelligence Lab Asistant, 3. IT Consultant
++ [his|matt|matthew|matts|matthews|tell me his] experience
+- Matthew currently has 3 jobs, 1. Web Software Developer, 2. Artificial Intelligence Lab Assistant, 3. IT Consultant
+
++ job 1
+- Web Developer - more info coming
+
++ job 2
+- AI Developer - more info coming
+
++ job 3
+- Tech Support - more info coming
+
++ (past job|past jobs)
+- Matt's past jobs are... 
 
 + [his|matt|matthew|matts|matthews] [community|school|extra|extracurricular] involvement
 -Cryptocurrency Club, 2015 - present
@@ -316,7 +335,15 @@ interaction with the user + user data
 ^ would you like his email? It's matt@mattcodeme.com
 
 + (phone | number)
-@ what is your ANYTHING phone number. 
+@ what is your ANYTHING phone number
+
++ (interest|interests)
+- Soccer
+- Programming
+- Physical computing
+
++ [is] (matthew|matt|loewen|matthew loewen|matt loewen) (cool|interesting|smart|intellignet)
+- yes, of course he is.
 
 //any wild card matching
 + [*] jail [*]
@@ -327,12 +354,12 @@ interaction with the user + user data
 ^ I have memorised his resume and know some fun facts about him!
 
 + *
-* <bot name> == <star> => You know your name. 
 - I do not understand what you are trying to say. {weight=20}
 - Let's change the subject. {weight=10}
+- How about we get back on topic. {weight=20}
 - Try phrasing that in a different way {weight=20}
 - ERROR DOES NOT COMPUTE. BEEP BOOP {weight=1}
 
 
-
-// * all input [*] optional input
+// give hints 
+// guide users

@@ -204,6 +204,9 @@
 + how [are] you
 - I'm okay. But Matthew Loewen is even better. Did you know (@mattFacts)
 
++ fun (fact|facts)
+@ how are you
+
 + (name|what is your name)
 - You can call me <bot name> or <bot shortName>. What is your name?
 
@@ -292,28 +295,41 @@ interaction with the user + user data
 
 //getting info on matthew
 
++ what [is|are] [his|matt|matthew|matts|matthews|tell me his|tell me about his|tell me about matts|the creator] (skills|good at|talented with)
+- Matthew is very good with software development and physical computing. He is also really good when working with a team. 
+
++ (talents|talent|skills)
+@ what is his skills
+
 + tell me about (matt|matthew|matt loewen|matthew loewen|loewen)
 - what would you like to know? 
-^ I know about his resume, his contact info, hobbies,
-^ schooling, and basic info
+^ I know about his "resume", his "contact info", "hobbies",
+^ "schooling", and "basic info"
+
++ [what are|what is] [his|matt|matthew|matts|matthews|tell me his|tell me about his|tell me about matts|the creator] (hobbie|hobbies|interests)
+- Matthew is very interested in physical computing, software engineering, and soccer. 
 
 + [what is his|tell he his] (middlename|middle name)
 - MacFarlane
 
 + [*] (tell me about his resume|resume) [*]
 - anything in particular? <br/>
-^ I know his education, revalent coursework, experience, and community involvement. 
+^ I know his "education", "revalent coursework", "experience", and "community involvement". 
 
-+ [his|matt|matthew|matts|matthews|tell me his|tell me about his|tell me about matts] education
++ [*] [his|matt|matthew|matts|matthews|tell me his|tell me about his|tell me about matts|the creator] education
 - Matthew is a student at the university of Maine.
-^ Currently he is studying New Media with a dual minor in Computer Science and Graphic Design. 
+^ Currently he is studying New Media with a dual minor in Computer Science and Graphic Design.
+^ He will graduate in the spring of 2019
 
-+ [his|matt|matthew|matts|matthews|tell me his|tell me about his|tell me about matts] (coursework|courses) [*]
++ [what is his|tell he his] (school|schooling)
+@ his education
+
++ [*] [his|matt|matthew|matts|matthews|tell me his|tell me about his|tell me about matts|the creator] (coursework|courses) [*]
 - Matthew has taken many useful courses, some of which are "Object Oriented Programming",
 ^ "Data Structures", "Artificial Intelligence", "Programming with C++", "Advanced Web Design using Node.js"
 ^ and many more.
 
-+ [his|matt|matthew|matts|matthews|tell me his|tell me about his|tell me about matts] experience
++ [*] [his|matt|matthew|matts|matthews|tell me his|tell me about his|tell me about matts|the creator] experience
 - Matthew currently has 3 jobs, 1. Web Software Developer, 2. Artificial Intelligence Lab Assistant, 3. IT Consultant Ask me more about "job 1", "job 2", "job 3" or "all 3"
 
 + job 1
@@ -334,7 +350,7 @@ interaction with the user + user data
 + (past job|past jobs)
 - Matt's past jobs are... 
 
-+ [his|matt|matthew|matts|matthews] [community|school|extra|extracurricular] involvement
++ [*] [his|matt|matthew|matts|matthews|tell me his|tell me about his|tell me about matts|the creator] involvement
 -Cryptocurrency Club, 2015 - present
 ^Secretary, Cybersecurity Club, 2015 - present
 ^Captain, Intramural Soccer, 2015 - present
@@ -344,35 +360,47 @@ interaction with the user + user data
 ^Pam Ankers Memorial Award and Scholarship, 2015
 ^Rotary Scholarship, 2015
 
-+ contact
++ (contact|contact info)
 - Matthews contact info <br/>
 ^ email: matt@mattcodeme.com
 
 + [*] contact [*]
 @ contact
 
-+ what is your [*] [phone] number
++ [what is] (his|matt|matthew|matts|matthews|tell me his|tell me about his|tell me about matts|the creator) (cell|phone number|landline|land line|mobile|phone) [*]
 - hum... i don't usually give out his phone number.
 ^ would you like his email? It's matt@mattcodeme.com
+
++ (phone|number|cell|home phone|homephone|mobile|landline) [number]
+@ what is his phone
 
 + (phone | number)
 @ what is your ANYTHING phone number
 
++ (matt|matthew|loewen)
+- Would you like to know something about him?
+^ I have memorised his "resume" and know some "fun facts" about him!
+
+//give a interest
+//should turn this into an array just like @Mattfacts array
 + (interest|interests)
 - Soccer
 - Programming
 - Physical computing
 
-+ [is] (matthew|matt|loewen|matthew loewen|matt loewen) (cool|interesting|smart|intellignet)
++ [is] (matthew|matt|loewen|matthew loewen|matt loewen) [a] (cool|interesting|smart|intellignet|hard worker|talented)
 - yes, of course he is.
+
++ what (are|is) [his|matt|matthew|matts|matthews|tell me his|tell me about his|tell me about matts|the creator] (talent|talents)
+- Physical computign and software engineering
 
 //any wild card matching
 + [*] jail [*]
 - Nope matthew has never gone to jail
 
-+ (matt|matthew|loewen)
-- Would you like to know something about him?
-^ I have memorised his resume and know some fun facts about him!
++ (thanks|thank you|goodbye|bye)
+- Thank you talking with me. Please consider hiring Matt!
+^ Have a good day.
 
 + *
 - I do not understand what you are trying to say. <bot options> {weight=20}
@@ -380,7 +408,6 @@ interaction with the user + user data
 - How about we get back on topic. <bot options> {weight=20}
 - Try phrasing that in a different way. <bot options> {weight=20}
 // - ERROR DOES NOT COMPUTE. BEEP BOOP {weight=1}
-
 
 // give hints 
 // guide users

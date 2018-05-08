@@ -1,5 +1,16 @@
+//This file is the "life" of this project 
+//Broken down into several parts
+//  substitions -> these catch key works as input and convert them
+//  3 key sections of user input to match
+//  bot variables, these store information about the bot
+//  (note) variables about the person skeaking to the bot are created and used as needed INLINE 
+//  (that's the only possible way to do it)
+//  
+
+
 ! version = 2.0
 
+//prints to web console what the program is doing
 ! global debug = true
 
 // Substitutions
@@ -134,7 +145,7 @@
 ! sub (f)       = rose
 ! sub (w)       = wilted rose
 
-//slang 
+//slang substitutions
 ! sub sup = what is up
 
 //either way subsutitions
@@ -221,9 +232,6 @@
 
 + (where are you from|location|where were you born)
 - I am from <bot location>
-
-//USER INTERACTION 
-
 //name
 
 + hello my name is *
@@ -274,6 +282,8 @@
 % <star> who
 - you are TOO funny.
 interaction with the user + user data 
+
+//USER INTERACTION 
 
 //getting info on matthew
 

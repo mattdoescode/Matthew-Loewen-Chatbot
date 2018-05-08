@@ -2,8 +2,9 @@
 function setup() {
   noCanvas();
 
-  //set up rivescript
+  //set up rivescript bot
   let bot = new RiveScript();
+  //load our "brain"
   bot.loadFile("brain/brain.rive", brainReady, brainError);
 
   //set up speech
@@ -31,6 +32,8 @@ function setup() {
 
   //handles chat information
   function chat() {
+    //takes in human response and gives it to the bot
+    //get a response back from the bot
     let input = user_input.value();
     let reply = bot.reply("local-user", input);
     output.html(reply);
